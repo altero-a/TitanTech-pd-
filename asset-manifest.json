@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/TitanTech-pd-/static/css/main.dc3c7423.css",
-    "main.js": "/TitanTech-pd-/static/js/main.45d7ab31.js",
+    "main.js": "/TitanTech-pd-/static/js/main.ecb4a13f.js",
     "static/js/453.e79eef39.chunk.js": "/TitanTech-pd-/static/js/453.e79eef39.chunk.js",
     "index.html": "/TitanTech-pd-/index.html",
     "main.dc3c7423.css.map": "/TitanTech-pd-/static/css/main.dc3c7423.css.map",
-    "main.45d7ab31.js.map": "/TitanTech-pd-/static/js/main.45d7ab31.js.map",
+    "main.ecb4a13f.js.map": "/TitanTech-pd-/static/js/main.ecb4a13f.js.map",
     "453.e79eef39.chunk.js.map": "/TitanTech-pd-/static/js/453.e79eef39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dc3c7423.css",
-    "static/js/main.45d7ab31.js"
+    "static/js/main.ecb4a13f.js"
   ]
 }
