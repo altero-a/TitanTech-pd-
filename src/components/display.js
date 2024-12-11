@@ -5,7 +5,7 @@ import { format } from 'date-fns'; // Robust date formatting
 import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
 
 const Display = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState('');
   const [selectedBatch, setSelectedBatch] = useState('');
   const [lugData, setLugData] = useState([]);
   const [showTable, setShowTable] = useState(false);
@@ -80,6 +80,20 @@ const Display = () => {
     return [];
   };
 
+  const buttonStyle = {
+    padding: '10px 20px',
+    fontSize: '16px',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+  };
+
+  const buttonColors = {
+    today: { backgroundColor: '#ffc107', color: '#fff' },
+    proceed: { backgroundColor: '#007bff', color: '#fff' },
+    home: { backgroundColor: '#dc3545', color: '#fff' },
+  };
+
   return (
     <div style={{ textAlign: 'center', padding: '20px' }}>
       {!showTable ? (
@@ -100,15 +114,7 @@ const Display = () => {
           <div style={{ marginBottom: '20px' }}>
             <button
               onClick={handleTodayClick}
-              style={{
-                padding: '10px 20px',
-                fontSize: '16px',
-                backgroundColor: '#ffc107',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer',
-              }}
+              style={{ ...buttonStyle, ...buttonColors.today }}
             >
               Today
             </button>
@@ -139,15 +145,7 @@ const Display = () => {
           <div style={{ marginBottom: '20px' }}>
             <button
               onClick={handleProceed}
-              style={{
-                padding: '10px 20px',
-                fontSize: '16px',
-                backgroundColor: '#007bff',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer',
-              }}
+              style={{ ...buttonStyle, ...buttonColors.proceed }}
             >
               Proceed
             </button>
@@ -157,15 +155,7 @@ const Display = () => {
           <div style={{ marginTop: '20px' }}>
             <button
               onClick={handleBackToHome}
-              style={{
-                padding: '10px 20px',
-                fontSize: '16px',
-                backgroundColor: '#dc3545',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer',
-              }}
+              style={{ ...buttonStyle, ...buttonColors.home }}
             >
               Back to Home
             </button>
@@ -208,15 +198,7 @@ const Display = () => {
           <div style={{ marginTop: '20px' }}>
             <button
               onClick={handleBackToHome}
-              style={{
-                padding: '10px 20px',
-                fontSize: '16px',
-                backgroundColor: '#28a745',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer',
-              }}
+              style={{ ...buttonStyle, ...buttonColors.home }}
             >
               Back to Home
             </button>

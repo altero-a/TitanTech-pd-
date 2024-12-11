@@ -41,7 +41,7 @@ const Login = ({ setUser }) => {
       {/* Logo container */}
       <div style={styles.logoContainer}>
         <img 
-          src="/titantechlogo.png"  // Ensure the image is in the 'public' folder
+          src="${process.env.PUBLIC_URL}/titantechlogo.png"  // Ensure the image is in the 'public' folder
           alt="Logo"
           style={styles.logo}
           onError={() => console.error("Logo not found or failed to load. Check the image path.")}
@@ -79,7 +79,7 @@ const Login = ({ setUser }) => {
 
 const styles = {
   loginPage: {
-    backgroundImage: 'url("/bg.jpg")',  // Background image for login page
+    backgroundImage: 'url("${process.env.PUBLIC_URL}/bg.jpg")',  // Background image for login page
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '100vh',
