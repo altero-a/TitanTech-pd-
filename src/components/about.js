@@ -27,7 +27,11 @@ const About = () => {
 
 const styles = {
   aboutPage: {
+<<<<<<< HEAD
     backgroundImage: 'url("/bgt.jpg")',  // Ensure bg.jpg is in your public folder
+=======
+    backgroundImage: 'url("/bg.jpg")',  // Ensure bg.jpg is in your public folder
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '100vh',
@@ -70,7 +74,11 @@ const styles = {
     marginBottom: '30px',
   },
   button: {
+<<<<<<< HEAD
     backgroundColor: '#e29f5b',
+=======
+    backgroundColor: '#007BFF',
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
     color: '#fff',
     padding: '12px 24px',
     fontSize: '18px',
@@ -85,4 +93,8 @@ const styles = {
   },
 };
 
+<<<<<<< HEAD
 export default About;
+=======
+export default About;
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3

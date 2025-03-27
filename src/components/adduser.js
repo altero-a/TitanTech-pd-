@@ -6,6 +6,7 @@ const AddUser = ({ addUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("employee");
+<<<<<<< HEAD
   const [generatePassword, setGeneratePassword] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -36,10 +37,19 @@ const AddUser = ({ addUser }) => {
 
     if (!/\S+@\S+\.\S+/.test(email)) {
       setErrorMessage("Invalid email format!");
+=======
+  const [successMessage, setSuccessMessage] = useState("");
+  const navigate = useNavigate();
+
+  const handleAddUser = () => {
+    if (!name || !email || !password) {
+      setSuccessMessage("All fields are required!");
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
       return;
     }
 
     const newUser = { name, email, password, role };
+<<<<<<< HEAD
 
     // Get existing users from localStorage
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
@@ -61,6 +71,11 @@ const AddUser = ({ addUser }) => {
     setEmail("");
     setPassword("");
     setGeneratePassword(false);
+=======
+    addUser(newUser);
+    setSuccessMessage("User added successfully!");
+    setTimeout(() => navigate("/home"), 2000); // Redirect after 2 seconds
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
   };
 
   return (
@@ -99,6 +114,7 @@ const AddUser = ({ addUser }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 style={styles.input}
                 placeholder="Enter password"
+<<<<<<< HEAD
                 disabled={generatePassword}
               />
             </div>
@@ -114,6 +130,11 @@ const AddUser = ({ addUser }) => {
               </label>
             </div>
 
+=======
+              />
+            </div>
+
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
             <div style={styles.inputGroup}>
               <label style={styles.label}>Role</label>
               <select
@@ -126,9 +147,12 @@ const AddUser = ({ addUser }) => {
               </select>
             </div>
 
+<<<<<<< HEAD
             {errorMessage && <p style={styles.errorMessage}>{errorMessage}</p>}
             {successMessage && <p style={styles.successMessage}>{successMessage}</p>}
 
+=======
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
             <div style={styles.buttonContainer}>
               <button type="button" onClick={handleAddUser} style={styles.button}>
                 Add User
@@ -142,6 +166,11 @@ const AddUser = ({ addUser }) => {
               </button>
             </div>
           </form>
+<<<<<<< HEAD
+=======
+
+          {successMessage && <p style={styles.successMessage}>{successMessage}</p>}
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
         </div>
       </div>
     </div>
@@ -150,6 +179,7 @@ const AddUser = ({ addUser }) => {
 
 const styles = {
   addUserPage: {
+<<<<<<< HEAD
     backgroundImage: 'url("/bg.jpg")',
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -163,10 +193,26 @@ const styles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     position: "absolute",
+=======
+    backgroundImage: 'url("/bg.jpg")', // Background image
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontFamily: 'Arial, sans-serif',
+    position: 'relative',
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Overlay to improve text contrast
+    position: 'absolute',
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
+<<<<<<< HEAD
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -263,6 +309,85 @@ const styles = {
   },
   checkboxLabel: {
     fontSize: "18px",
+=======
+  },
+  container: {
+    textAlign: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)', // Dark background for the form
+    padding: '30px',
+    borderRadius: '10px',
+    maxWidth: '500px',
+    width: '90%',
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4)',
+    animation: 'fadeIn 1.5s ease-in-out',
+  },
+  title: {
+    fontSize: '36px',
+    color: '#FFA500',
+    marginBottom: '20px',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '20px',
+  },
+  inputGroup: {
+    textAlign: 'left',
+  },
+  label: {
+    fontSize: '16px',
+    color: '#fff',
+    marginBottom: '8px',
+  },
+  input: {
+    width: '100%',
+    padding: '12px',
+    borderRadius: '5px',
+    border: '1px solid #ccc',
+    backgroundColor: '#2c2c2c',
+    color: '#fff',
+    fontSize: '16px',
+    outline: 'none',
+    transition: 'border-color 0.3s ease',
+  },
+  select: {
+    width: '100%',
+    padding: '12px',
+    borderRadius: '5px',
+    backgroundColor: '#2c2c2c',
+    color: '#fff',
+    border: '1px solid #ccc',
+  },
+  buttonContainer: {
+    display: 'flex',
+    gap: '10px',
+    marginTop: '20px',
+  },
+  button: {
+    flex: 1,
+    backgroundColor: '#FFA500',
+    color: '#fff',
+    padding: '14px',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    transition: 'background-color 0.3s ease, transform 0.3s ease',
+  },
+  backButton: {
+    flex: 1,
+    backgroundColor: '#555',
+    color: '#fff',
+    padding: '14px',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    transition: 'background-color 0.3s ease, transform 0.3s ease',
+  },
+  successMessage: {
+    marginTop: '20px',
+    color: '#32CD32',
+    fontSize: '18px',
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
   },
 };
 

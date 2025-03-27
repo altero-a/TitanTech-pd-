@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "team18-pd",
   "version": "0.1.0",
   "private": true,
@@ -19,13 +20,37 @@
     "react-scripts": "^5.0.1",
     "web-vitals": "^4.2.4",
     "ws": "^8.18.1"
+=======
+  "name": "pd",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://altero-a.github.io/TitanTech-pd-",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "date-fns": "^4.1.0",
+    "papaparse": "^5.4.1",
+    "react": "^18.3.1",
+    "react-calendar": "^5.1.0",
+    "react-datepicker": "^4.5.0",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.0.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+<<<<<<< HEAD
     "deploy": "firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+=======
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +71,10 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+=======
+    "gh-pages": "^6.2.0"
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
   }
 }

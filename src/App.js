@@ -7,12 +7,18 @@ import Display from "./components/display";
 import AddUser from "./components/adduser";
 import ViewUsers from "./components/viewuser";
 import BatchDetailsPage from "./components/batchdetails";
+<<<<<<< HEAD
 import { app, auth, database, firestore, storage } from "./firebase"; // Firebase Import
 import Papa from "papaparse";
 import "react-datepicker/dist/react-datepicker.css";
 
 console.log("Firebase Initialized:", app); // Debugging Firebase initialization
 
+=======
+import Papa from "papaparse";
+import "react-datepicker/dist/react-datepicker.css";
+
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
 const App = () => {
   const initialUsers = [
     { email: "admin@gmail.com", password: "admin123", role: "admin", name: "Admin" },
@@ -22,11 +28,18 @@ const App = () => {
   const [users, setUsers] = useState(initialUsers);
   const [user, setUser] = useState(null);
   const [csvData, setCsvData] = useState([]);
+<<<<<<< HEAD
   const [filteredData, setFilteredData] = useState([]);
   const [batchOptions, setBatchOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState("");
   const [socket, setSocket] = useState(null);
+=======
+  const [selectedDate, setSelectedDate] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
+  const [batchOptions, setBatchOptions] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
 
   const addUser = (newUser) => {
     setUsers((prevUsers) => [...prevUsers, newUser]);
@@ -64,6 +77,7 @@ const App = () => {
     }
   }, [selectedDate, csvData]);
 
+<<<<<<< HEAD
   useEffect(() => {
     const socket = new WebSocket("ws://localhost:8080");
 
@@ -93,6 +107,8 @@ const App = () => {
     };
   }, []);
 
+=======
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
   return (
     <Router>
       <Routes>

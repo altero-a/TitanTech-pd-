@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
+<<<<<<< HEAD
 import 'react-calendar/dist/Calendar.css'; 
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
+=======
+import 'react-calendar/dist/Calendar.css'; // Import calendar styles
+import { format } from 'date-fns'; // Robust date formatting
+import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
 
 const Display = () => {
   const [selectedDate, setSelectedDate] = useState('');
@@ -31,7 +37,11 @@ const Display = () => {
     },
   };
 
+<<<<<<< HEAD
   const navigate = useNavigate();
+=======
+  const navigate = useNavigate(); // Initialize the navigate function
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
 
   useEffect(() => {
     if (selectedDate && selectedBatch) {
@@ -70,6 +80,7 @@ const Display = () => {
   };
 
   const handleBackToHome = () => {
+<<<<<<< HEAD
     navigate("/home");
   };
 
@@ -78,6 +89,9 @@ const Display = () => {
     setSelectedBatch('');
     setLugData([]);
     setShowTable(false);
+=======
+    navigate("/home"); // Navigate back to the home page
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
   };
 
   const getAvailableBatches = () => {
@@ -88,14 +102,22 @@ const Display = () => {
   };
 
   const buttonStyle = {
+<<<<<<< HEAD
     padding: '8px 15px',
     fontSize: '23px',
     border: 'none',
     borderRadius: '3px',
+=======
+    padding: '10px 20px',
+    fontSize: '16px',
+    border: 'none',
+    borderRadius: '5px',
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
     cursor: 'pointer',
   };
 
   const buttonColors = {
+<<<<<<< HEAD
     today: { backgroundColor: '#ffa302', color: '#fff' },
     proceed: { backgroundColor: '#b99a64', color: '#fff' },
     home: { backgroundColor: '#1f4761', color: '#fff' },
@@ -119,11 +141,27 @@ const Display = () => {
           <div style={styles.form}>
             <h3 style={styles.formTitle}>Choose your Date</h3>
             <div style={styles.calendar}> 
+=======
+    today: { backgroundColor: '#ffc107', color: '#fff' },
+    proceed: { backgroundColor: '#007bff', color: '#fff' },
+    home: { backgroundColor: '#dc3545', color: '#fff' },
+  };
+
+  return (
+    <div style={{ textAlign: 'center', padding: '20px' }}>
+      {!showTable ? (
+        <>
+          <h2>Select Date and Batch Number</h2>
+
+          {/* Full Screen Calendar */}
+          <div style={{ display: 'inline-block', marginBottom: '20px' }}>
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
             <Calendar
               onChange={handleDateChange}
               value={selectedDate ? new Date(selectedDate) : null}
               maxDetail="month"
               showNeighboringMonth={false}
+<<<<<<< HEAD
               style={styles.calendar}
             />
             </div>
@@ -202,6 +240,54 @@ const Display = () => {
             >
               Back to Date Selection
             </button>
+=======
+            />
+          </div>
+
+          {/* Today Button */}
+          <div style={{ marginBottom: '20px' }}>
+            <button
+              onClick={handleTodayClick}
+              style={{ ...buttonStyle, ...buttonColors.today }}
+            >
+              Today
+            </button>
+          </div>
+
+          {/* Display the batch dropdown */}
+          {selectedDate && (
+            <div style={{ marginBottom: '20px' }}>
+              <label>
+                Batch Number:
+                <select
+                  value={selectedBatch}
+                  onChange={(e) => setSelectedBatch(e.target.value)}
+                  style={{ padding: '10px', fontSize: '16px' }}
+                >
+                  <option value="">Select a batch</option>
+                  {getAvailableBatches().map((batch) => (
+                    <option key={batch} value={batch}>
+                      {batch}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          )}
+
+          {/* Proceed Button */}
+          <div style={{ marginBottom: '20px' }}>
+            <button
+              onClick={handleProceed}
+              style={{ ...buttonStyle, ...buttonColors.proceed }}
+            >
+              Proceed
+            </button>
+          </div>
+
+          {/* Back to Home Button */}
+          <div style={{ marginTop: '20px' }}>
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
             <button
               onClick={handleBackToHome}
               style={{ ...buttonStyle, ...buttonColors.home }}
@@ -209,12 +295,60 @@ const Display = () => {
               Back to Home
             </button>
           </div>
+<<<<<<< HEAD
         </div>
+=======
+        </>
+      ) : (
+        <>
+          {/* Table Display */}
+          <h3>Lug Data for {selectedBatch} on {selectedDate}</h3>
+          <table border="1" style={{ width: '80%', margin: '20px auto' }}>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Batch No.</th>
+                <th>Grade</th>
+                <th>Nominal Diameter(mm)</th>
+                <th>Actual Length(m)</th>
+                <th>Actual Weight (Kg)</th>
+                <th>Actual Mass (Kg/m)</th>
+                <th>Variation in Unit Mass</th>
+                <th>Ave. Lug Spacing (mm)</th>
+                <th>Lug Height (mm)</th>
+                <th>Sum. Of Gap (mm)</th>
+                <th>Target Length</th>
+                <th>Rebar Length</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lugData.map((row, index) => (
+                <tr key={index}>
+                  {row.map((cell, cellIndex) => (
+                    <td key={cellIndex}>{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {/* Back Button */}
+          <div style={{ marginTop: '20px' }}>
+            <button
+              onClick={handleBackToHome}
+              style={{ ...buttonStyle, ...buttonColors.home }}
+            >
+              Back to Home
+            </button>
+          </div>
+        </>
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
       )}
     </div>
   );
 };
 
+<<<<<<< HEAD
 const styles = {
   displayPage: {
     backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/bg.jpg)',
@@ -333,3 +467,6 @@ const styles = {
 };
 
 export default Display;
+=======
+export default Display;
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3

@@ -18,7 +18,11 @@ const Home = ({ user, setUser, users }) => {  // Use `users` instead of `employe
   return (
     <div style={styles.homePage}>
       <div style={styles.logoContainer}>
+<<<<<<< HEAD
         <img src="/logoti.jpg" alt="TitanTech Logo" style={styles.logo} />
+=======
+        <img src="/titantechlogo.jpg" alt="TitanTech Logo" style={styles.logo} />
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
       </div>
       <h1 style={styles.title}>Welcome, {user.role.toUpperCase()}!</h1>
       <div style={styles.buttonsContainer}>
@@ -30,7 +34,11 @@ const Home = ({ user, setUser, users }) => {  // Use `users` instead of `employe
             <button onClick={handleViewUsers} style={styles.button}>View Users</button>
           </>
         )}
+<<<<<<< HEAD
         <logbutton onClick={handleLogout} style={styles.logbutton}>Logout</logbutton>
+=======
+        <button onClick={handleLogout} style={styles.button}>Logout</button>
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
       </div>
 
       {/* Only show user list if it's not empty and user is an admin */}
@@ -91,7 +99,11 @@ const styles = {
     height: 'auto',
   },
   title: {
+<<<<<<< HEAD
     fontSize: '40px',
+=======
+    fontSize: '36px',
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
     marginBottom: '20px',
   },
   buttonsContainer: {
@@ -100,6 +112,7 @@ const styles = {
     gap: '10px',
   },
   button: {
+<<<<<<< HEAD
     backgroundColor: '#b99a64',
     border: 'none',
     padding: '15px 20px',
@@ -114,6 +127,12 @@ const styles = {
     border: 'none',
     padding: '15px 20px',
     fontSize: '23px',
+=======
+    backgroundColor: '#007BFF',
+    border: 'none',
+    padding: '10px 20px',
+    fontSize: '16px',
+>>>>>>> 084fec8f9bdaff8d785ac977c90ea0d1e33491b3
     color: '#fff',
     cursor: 'pointer',
     borderRadius: '5px',
