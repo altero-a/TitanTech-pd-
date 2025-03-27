@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "team18-pd",
+    "pd": "team18-pd"
+  },
+  "targets": {},
+  "etags": {}
+}

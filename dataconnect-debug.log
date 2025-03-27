@@ -1,0 +1,16 @@
+I0323 13:18:23.577749    5072 load.go:37] Reloading schema and connectors...
+I0323 13:18:23.630544    5072 control.go:59] [/emulator/team18-pd dccd] UpdateResources(): done
+Schema: sources: schema\schema.gql [2088B] 
+Connector "default": sources: connector\mutations.gql [1233B] connector\queries.gql [1802B] 
+I0323 13:18:23.646713    5072 codegen.go:82] [connector "default" javascriptSdk] Generating sources into "C:\\Users\\alexi\\Desktop\\emtech\\team18-pd\\dataconnect-generated\\js\\default-connector"
+I0323 13:18:23.649716    5072 collector.go:107] schema extensions wrote into "C:\\Users\\alexi\\Desktop\\emtech\\team18-pd\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [66094B] 
+I0323 13:18:23.651719    5072 collector.go:107] connector "default" javascriptSdk wrote into "C:\\Users\\alexi\\Desktop\\emtech\\team18-pd\\dataconnect-generated\\js\\default-connector"
+Generated sources: index.cjs.js [148B] package.json [634B] README.md [2800B] index.d.ts [246B] esm\index.esm.js [112B] esm\package.json [17B] 
+I0323 13:18:23.664730    5072 installsdk.go:76] Running command: C:\Users\alexi\AppData\Roaming\npm\npm.cmd install file:dataconnect-generated\js\default-connector
+I0323 13:18:26.552018    5072 load.go:115] Finished reloading
+I0323 13:18:26.553211    5072 dev.go:95] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0323 13:18:26.553211    5072 dev.go:95] Listening on address (HTTP + gRPC): [::1]:9399
+I0323 13:18:28.022818    5072 control.go:59] [/emulator/team18-pd d1d9] UpdateResources(): done
+Schema: sources: schema\schema.gql [2088B] 
+Connector "default": sources: connector\mutations.gql [1233B] connector\queries.gql [1802B] 
