@@ -1,35 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ViewUser = ({ users, setUsers }) => {
+const ViewUser = () => {
+  const [users, setUsers] = useState([]);
   const [showPassword, setShowPassword] = useState({});
   const navigate = useNavigate();
 
+  // Load approved users from localStorage
+  useEffect(() => {
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const approvedUsers = storedUsers.filter(user => user.status === "approved");
+    setUsers(approvedUsers);
+  }, []);
+
+  // Toggle password visibility
   const togglePassword = (email) => {
     setShowPassword((prevState) => ({
       ...prevState,
-      [email]: !prevState[email],
+      [email]: !prevState[email], // Toggle the visibility of the password for the specific user
     }));
   };
 
+  // Delete user from the state and localStorage
   const deleteUser = (email) => {
     if (window.confirm(`Are you sure you want to delete the user with email: ${email}?`)) {
       const updatedUsers = users.filter((user) => user.email !== email);
-      setUsers(updatedUsers);
-      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      setUsers(updatedUsers);  // Remove the user from the state
+
+      // Also remove the user from localStorage
+      const allUsers = JSON.parse(localStorage.getItem("users")) || [];
+      const filteredAll = allUsers.filter(user => user.email !== email);
+      localStorage.setItem("users", JSON.stringify(filteredAll)); // Update localStorage
     }
   };
 
+  // Navigate back to the home page
   const goBack = () => {
     navigate("/home");
   };
 
   return (
     <div style={styles.container}>
-      <div style={styles.yellowOverlay}></div> {/* Yellow filter over bg image */}
       <div style={styles.overlay}>
         <h2 style={styles.title}>View Users</h2>
-        {users && users.filter((user) => user.status === "approved").length === 0 ? (
+        {users.length === 0 ? (
           <p style={styles.noUsersMessage}>No approved users available.</p>
         ) : (
           <table style={styles.table}>
@@ -43,30 +57,28 @@ const ViewUser = ({ users, setUsers }) => {
               </tr>
             </thead>
             <tbody>
-              {users
-                .filter((user) => user.status === "approved")
-                .map((user, index) => (
-                  <tr key={index} style={index % 2 === 0 ? styles.evenRow : styles.oddRow}>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>{user.role}</td>
-                    <td>{showPassword[user.email] ? user.password : "*****"}</td>
-                    <td>
-                      <button onClick={() => deleteUser(user.email)} style={styles.deleteButton}>
-                        Delete
-                      </button>
-                      <button onClick={() => togglePassword(user.email)} style={styles.toggleButton}>
-                        {showPassword[user.email] ? "Hide Password" : "Show Password"}
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+              {users.map((user, index) => (
+                <tr key={index} style={index % 2 === 0 ? styles.evenRow : styles.oddRow}>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.role}</td>
+                  <td>
+                    {showPassword[user.email] ? user.password : "*****"}
+                    <button onClick={() => togglePassword(user.email)} style={styles.toggleButton}>
+                      {showPassword[user.email] ? "Hide" : "Show"}
+                    </button>
+                  </td>
+                  <td>
+                    <button onClick={() => deleteUser(user.email)} style={styles.deleteButton}>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         )}
-        <button onClick={goBack} style={styles.backButton}>
-          Back to Home
-        </button>
+        <button onClick={goBack} style={styles.backButton}>Back to Home</button>
       </div>
     </div>
   );
@@ -74,7 +86,6 @@ const ViewUser = ({ users, setUsers }) => {
 
 const styles = {
   container: {
-    position: "relative",
     backgroundImage: 'url("/bg.jpg")',
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -82,36 +93,23 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    overflow: "hidden",
-  },
-  yellowOverlay: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgba(224, 187, 118, 0.54)", // Yellow tint
-    zIndex: 0,
+    position: "relative",
   },
   overlay: {
-    position: "relative",
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
     padding: "20px",
     borderRadius: "10px",
     maxWidth: "1200px",
     width: "100%",
     color: "#fff",
     textAlign: "center",
-    zIndex: 1, // Ensures content is above yellow overlay
   },
   title: {
     fontSize: "28px",
-    color: "#f1c40f",
     marginBottom: "20px",
   },
   noUsersMessage: {
     fontSize: "18px",
-    color: "#f1c40f",
   },
   table: {
     width: "100%",
@@ -119,49 +117,44 @@ const styles = {
     marginTop: "20px",
   },
   tableHeader: {
-    backgroundColor: "#f1c40f",
-    color: "#000",
+    backgroundColor: "#FFA302",
     padding: "10px",
-    textAlign: "left",
+    textAlign: "center",
   },
   evenRow: {
-    backgroundColor: "#333",
-    color: "#fff",
+    backgroundColor: "#f4f4f4",
+    color: "black",
   },
   oddRow: {
-    backgroundColor: "#444",
-    color: "#fff",
+    backgroundColor: "#ffffff",
+    color: "black",
   },
   deleteButton: {
-    backgroundColor: "#e74c3c",
+    backgroundColor: "#1F4761",
     border: "none",
-    padding: "10px 20px",
+    padding: "10px",
     color: "#fff",
     cursor: "pointer",
     borderRadius: "5px",
     margin: "5px",
-    transition: "background-color 0.3s ease",
   },
   toggleButton: {
-    backgroundColor: "#f39c12",
+    backgroundColor: "#FEC619",
     border: "none",
-    padding: "10px 20px",
+    padding: "5px 10px",
     color: "#000",
     cursor: "pointer",
     borderRadius: "5px",
-    margin: "5px",
-    transition: "background-color 0.3s ease",
+    marginLeft: "5px",
   },
   backButton: {
-    backgroundColor: "#ffa500",
+    backgroundColor: "#B99A64",
     border: "none",
     padding: "10px 20px",
-    color: "#000",
+    color: "#fff",
     cursor: "pointer",
     borderRadius: "5px",
     marginTop: "20px",
-    fontSize: "16px",
-    transition: "background-color 0.3s ease",
   },
 };
 

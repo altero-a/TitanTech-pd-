@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/TitanTech-pd-/static/css/main.dc3c7423.css",
-    "main.js": "/TitanTech-pd-/static/js/main.f62de09c.js",
-    "static/js/453.e79eef39.chunk.js": "/TitanTech-pd-/static/js/453.e79eef39.chunk.js",
-    "index.html": "/TitanTech-pd-/index.html",
-    "main.dc3c7423.css.map": "/TitanTech-pd-/static/css/main.dc3c7423.css.map",
-    "main.f62de09c.js.map": "/TitanTech-pd-/static/js/main.f62de09c.js.map",
-    "453.e79eef39.chunk.js.map": "/TitanTech-pd-/static/js/453.e79eef39.chunk.js.map"
+    "main.css": "/static/css/main.78cb0c20.css",
+    "main.js": "/static/js/main.55b7204f.js",
+    "static/js/488.6e928c4f.chunk.js": "/static/js/488.6e928c4f.chunk.js",
+    "index.html": "/index.html",
+    "main.78cb0c20.css.map": "/static/css/main.78cb0c20.css.map",
+    "main.55b7204f.js.map": "/static/js/main.55b7204f.js.map",
+    "488.6e928c4f.chunk.js.map": "/static/js/488.6e928c4f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc3c7423.css",
-    "static/js/main.f62de09c.js"
+    "static/css/main.78cb0c20.css",
+    "static/js/main.55b7204f.js"
   ]
 }
